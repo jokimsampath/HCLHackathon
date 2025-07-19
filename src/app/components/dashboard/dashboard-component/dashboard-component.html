@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.jpg" width="120" height="auto" alt="Company_Logo">
+        </div>
+        <h2>Hospital Name</h2>
+        <ul>
+            <li><a [routerLink]="['/dashboard']" style="font-weight: bold;">Dashboard</a></li>
+            <li><a routerLink="/dashboard/register">Register Patient</a></li>
+            <li><a routerLink="/dashboard/premiumcalculation">Calculate Premium</a></li>
+            <li><a [routerLink]="['/logout']">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="login-card">
+    <div class="logo">
+      <img src="assets/logo.jpg" width="120" height="auto" alt="Company_Logo" />
+    </div>
+    <h1>Insurance Form</h1>
+    <form [formGroup]="insuranceForm" (ngSubmit)="onSubmit()">
+
+      <input type="number" formControlName="age" placeholder="Age" />
+      <div class="error" *ngIf="insuranceForm.get('age')?.invalid && insuranceForm.get('age')?.touched">
+        Age is required.
+      </div>
+
+      <label>Gender:</label>
+      <div>
+        <label><input type="radio" formControlName="gender" value="Male" /> Male</label>
+        <label style="margin-left: 15px;"><input type="radio" formControlName="gender" value="Female" /> Female</label>
+      </div>
+      <div class="error" *ngIf="insuranceForm.get('gender')?.invalid && insuranceForm.get('gender')?.touched">
+        Gender is required.
+      </div>
+
+      <label>Smoking Habit:</label>
+      <div>
+        <label><input type="radio" formControlName="smoking" value="Yes" /> Yes</label>
+        <label style="margin-left: 15px;"><input type="radio" formControlName="smoking" value="No" /> No</label>
+      </div>
+      <div class="error" *ngIf="insuranceForm.get('smoking')?.invalid && insuranceForm.get('smoking')?.touched">
+        Smoking habit is required.
+      </div>
+
+      <input formControlName="preExistingConditions" placeholder="Pre-existing Conditions" />
+      <div class="error" *ngIf="insuranceForm.get('preExistingConditions')?.invalid && insuranceForm.get('preExistingConditions')?.touched">
+        This field is required.
+      </div>
+
+      <input type="number" formControlName="sumInsured" placeholder="Sum Insured" />
+      <div class="error" *ngIf="insuranceForm.get('sumInsured')?.invalid && insuranceForm.get('sumInsured')?.touched">
+        Sum Insured is required.
+      </div>
+
+      <input type="number" formControlName="policyTenure" placeholder="Policy Tenure (Years)" />
+      <div class="error" *ngIf="insuranceForm.get('policyTenure')?.invalid && insuranceForm.get('policyTenure')?.touched">
+        Policy Tenure is required.
+      </div>
+
+      <select formControlName="addonCovers">
+        <option value="">Select Add-on Cover</option>
+        <option *ngFor="let cover of addonCoverOptions" [value]="cover">{{ cover }}</option>
+      </select>
+      <div class="error" *ngIf="insuranceForm.get('addonCovers')?.invalid && insuranceForm.get('addonCovers')?.touched">
+        Add-on cover is required.
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

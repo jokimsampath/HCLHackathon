@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="login-card">
+        <div class="logo">
+            <img src="assets/logo.jpg" width="120" height="auto" alt="Company_Logo">
+        </div>
+        <h1>Register</h1>
+        <form [formGroup]="patientRegisterForm" (ngSubmit)="onSubmit()">
+            <input formControlName="name" placeholder="name" />
+            <div class="error" *ngIf="patientRegisterForm.get('name')?.invalid && patientRegisterForm.get('name')?.touched">
+                <div *ngIf="patientRegisterForm.get('name')?.errors?.['required']">name is required.</div>
+                <div *ngIf="patientRegisterForm.get('name')?.errors?.['minlength']">
+                    Minimum 3 characters required.
+                </div>
+            </div>
+            <input formControlName="email" placeholder="Email" />
+            <div class="error" *ngIf="patientRegisterForm.get('email')?.invalid && patientRegisterForm.get('email')?.touched">
+                <div *ngIf="patientRegisterForm.get('email')?.errors?.['required']">email is required.</div>
+                <div *ngIf="patientRegisterForm.get('email')?.errors?.['minlength']">
+                    Minimum 6 characters required.
+                </div>
+                <div *ngIf="patientRegisterForm.get('email')?.errors?.['pattern']">
+                    Incorrect Email format.
+                </div>
+            </div>
+            <input formControlName="phone" placeholder="phone" />
+            <div class="error" *ngIf="patientRegisterForm.get('phone')?.invalid && patientRegisterForm.get('phone')?.touched">
+                <div *ngIf="patientRegisterForm.get('phone')?.errors?.['required']">phone is required.</div>
+                <div *ngIf="patientRegisterForm.get('phone')?.errors?.['minlength']">
+                    Minimum 6 characters required.
+                </div>
+            </div>
+            <input formControlName="address" placeholder="address" />
+            <div class="error" *ngIf="patientRegisterForm.get('address')?.invalid && patientRegisterForm.get('address')?.touched">
+                <div *ngIf="patientRegisterForm.get('address')?.errors?.['required']">address is required.</div>
+                <div *ngIf="patientRegisterForm.get('address')?.errors?.['minlength']">
+                    Minimum 6 characters required.
+                </div>
+            </div>
+            <input formControlName="dob" placeholder="dob" />
+            <div class="error" *ngIf="patientRegisterForm.get('dob')?.invalid && patientRegisterForm.get('dob')?.touched">
+                <div *ngIf="patientRegisterForm.get('dob')?.errors?.['required']">dob is required.</div>
+                <div *ngIf="patientRegisterForm.get('dob')?.errors?.['minlength']">
+                    Minimum 6 characters required.
+                </div>
+            </div>
+            <input formControlName="complaint_Issue" placeholder="complaint/Issue" />
+            <div class="error" *ngIf="patientRegisterForm.get('complaint_Issue')?.invalid && patientRegisterForm.get('complaint_Issue')?.touched">
+                <div *ngIf="patientRegisterForm.get('complaint_Issue')?.errors?.['required']">Complaint/Issue is required.</div>
+                <div *ngIf="patientRegisterForm.get('complaint_Issue')?.errors?.['minlength']">
+                    Minimum 6 characters required.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="header">
+    <h1>Jokim Sampath</h1>
+</div>
+<div class="card">
+    <h2>Recent Patients</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Complaint</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let patient of patients">
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.phone }}</td>
+            <td>{{ patient.complaint }}</td>
+            <td><button class="btn">View Profile</button></td>
+        </tr>
+    </table>
+</div>

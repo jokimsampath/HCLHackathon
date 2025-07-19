@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="login-card">
+        <div class="logo">
+            <img src="assets/logo.jpg" width="120" height="auto" alt="Company_Logo">
+        </div>
+        <h1>Login</h1>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <!-- Username Input -->
+            <input type="text" formControlName="username" placeholder="Username" />
+            <div class="error" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+                <div *ngIf="loginForm.get('username')?.errors?.['required']">Username is required.</div>
+                <div *ngIf="loginForm.get('username')?.errors?.['minlength']">
+                    Minimum 3 characters required.
+                </div>
+            </div>
+
+            <!-- Password Input -->
+            <input type="password" formControlName="password" placeholder="Password" />
+            <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    Minimum 6 characters required.
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <!-- Links -->
+        <div class="links">
+            <a href="#">Forgot Password?</a><br><br>
+            <a href="#">New User? Register here</a>
+        </div>
+    </div>
+</div>
